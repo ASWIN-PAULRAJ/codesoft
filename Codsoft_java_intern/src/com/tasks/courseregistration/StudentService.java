@@ -42,7 +42,7 @@ public class StudentService {
 		String query = "select c.course_code ,c.course_title ,c.description ,c.schedule  from public.student st \r\n"
 				+ "left join student_courses sc on st.student_id  = sc.studentid \r\n"
 				+ "left join course c on sc.courseid = c.course_id \r\n"
-				+ "where student_id = %s;";
+				+ "where st.student_id = %s order by c.course_id; ";
 		
 		ResultSet rs = DbConnections.ExecuteQuery(String.format(query, student.getStudent_id()));
 		

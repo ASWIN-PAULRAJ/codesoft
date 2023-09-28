@@ -2,6 +2,7 @@ package com.tasks.courseregistration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,13 +26,29 @@ public class DbConnections {
 	
 	public static ResultSet ExecuteQuery(String query) throws ClassNotFoundException, SQLException {
 		//System.out.println(query);
+		try {
+			st = conn.createStatement();
+			result = st.executeQuery(query);
+			return result;
+		}
+		catch(Exception e) {
+			
+		}
+		return null;
 		
-		st = conn.createStatement();
-		result = st.executeQuery(query);
 		
 		
-		return result;
 	}
-	
+//	public static void ExecuteInsertUpdateQuery(String query) throws ClassNotFoundException, SQLException {
+//		//System.out.println(query);
+//		PreparedStatement stmt=conn.prepareStatement(query);
+//		
+//		
+//		int i=stmt.executeUpdate(); 
+//		
+//		
+//		
+//	}
+//	
 	
 }

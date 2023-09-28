@@ -67,7 +67,7 @@ public class CourseRegistration {
 				System.out.println("Press 1 to see available courses\r\n"
 						+ "Press 2 to see registered courses\r\n"
 						+ "Press 3 to Drop from a registered course \r\n" 
-						+ "Press 4 to registered a course \r\n"
+						+ "Press 4 registered a course \r\n"
 						+ "Press 0 to logout");
 				input = sc.nextLine();
 
@@ -92,6 +92,7 @@ public class CourseRegistration {
 					break;
 					
 					case "2":{
+						enrolledCourses = sservice.getRegisteredCourses(student);
 						reg.printEnrolledCourses(enrolledCourses);
 					}
 					break;
